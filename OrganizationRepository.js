@@ -6,10 +6,11 @@ function OrganizationRepository(dBGateway){
 
     let self = this;
 
-    self.add = function(model)
+    self.add = function(modelDetails)
     {
-      return   dBGateway.connect.then(()=>{
-              return  OrganizationModel.create(model);//.then(console.log).catch(console.log);
-        });
+       // console.log("will add",modelDetails)
+        return  dBGateway.performInsert(modelDetails);
      }
 }
+
+export default OrganizationRepository;
